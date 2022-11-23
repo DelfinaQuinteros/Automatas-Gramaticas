@@ -50,7 +50,7 @@ class FileService:
         results = []
         for line in lines:
             date = self.get_data.get_date(line)
-            #Este if es para corregir un error, ya que a veces la tupla fecha tie ne el primer elemento como None, y eso provoca error
+            #Este if es para corregir un error, ya que a veces la tupla fecha tiene el primer elemento como None, y eso provoca error
             if date[0] is not None:
                 date = datetime.datetime.strptime(date[0], "%d/%m/%Y %H:%M")
                 start_date = datetime.datetime.strptime(data_input["fecha inicio"], "%d/%m/%Y %H:%M")

@@ -1,7 +1,7 @@
 from data_validator import DataFilter
 
-class Input:
 
+class Input:
     get_data = DataFilter()
 
     def input_user_dates(self) -> dict:
@@ -32,8 +32,6 @@ class Input:
                 print('El nombre de usuario debe contener alguna letra minúscula.')
         return inputs
 
-
-
     def input_mac_dates(self) -> dict:
         inputs: dict = {}
         counter = 0
@@ -62,7 +60,6 @@ class Input:
                 print('El formato de la dirección MAC del AP es incorrecto (XX:XX:XX:XX:XX:XX:UM).')
         return inputs
 
-
     def input_user(self):
         counter = 0
         while counter == 0:
@@ -73,8 +70,6 @@ class Input:
             else:
                 print('El nombre de usuario debe contener alguna letra minúscula.')
         return user_lines, user_id
-
-
 
     def input_mac_of_user(self):
         counter = 0

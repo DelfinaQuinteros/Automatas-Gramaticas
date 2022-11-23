@@ -1,6 +1,7 @@
 from constant import *
 from functions import FileService
 import sys
+from time import sleep
 
 
 def read_option():
@@ -14,12 +15,25 @@ def read_option():
         4: file_service.get_macs_by_user,
         5: file_service.get_users_by_macap_and_date,
     }
-    return options[opt]()
-
-        #return sys.exit()
+    if opt == 0:
+        print("Saliendo...")
+        sys.exit()
+    elif opt in options:
+        return options[opt]()
+    else:
+        print("Ingrese una opcion valida")
+        return read_option()
 
 
 if __name__ == '__main__':
     while True:
-        print(MAIN)
-        print(read_option())
+        sleep(3)
+        try:
+            print(MAIN)
+            print(read_option())
+        except ValueError:
+            print("La opcion debe ser un numero")
+            print(read_option())
+        except KeyboardInterrupt:
+            print("\n Saliendo...")
+            sys.exit()
