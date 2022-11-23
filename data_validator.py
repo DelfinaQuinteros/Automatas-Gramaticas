@@ -77,7 +77,7 @@ class DataFilter:
 
     @staticmethod
     def get_input_date(input):
-        date = re.search('(^(\d{2}/)+\d{4}) (\d{2}:\d{2}$)', input)
+        date = re.search('^((\d{2}/)+(\d{2}/)+\d{4}) (\d{2}:\d{2})$', input)
         try:
             return str(date.group(0))
         except:
