@@ -15,7 +15,6 @@ class User:
     def __repr__(self):
             return f"ID: {self.id} USUARIO: {self.user} INICIO CONEXION: {self.start_conection} FIN CONEXCION:{self.end_conection} TIEMPO SESION: {self.session_time} OCTETOS INT: {self.octects_in} OCTETOS OUT: {self.octetcs_out} MAC AP: {self.mac_ap} MAC CLIENTE: {self.mac_client}"
 
-    #Aca en vez de que extraiga como una lista, usemos expresiones regulaes
     @staticmethod
     def create_object(line):
         id = line[0]
