@@ -1,8 +1,5 @@
 import re
 from file_logic import FileDescriptor
-import logging
-
-logging.basicConfig()
 
 
 class DataFilter:
@@ -13,24 +10,24 @@ class DataFilter:
         mac_ap = re.search('(^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2}):UM$)', line)
         try:
             return mac_ap.group(0)
-        except Exception:
-            logging.error('Error searching', exc_info=True)
+        except:
+            return None
 
     @staticmethod
-    def get_mac(self, line):
+    def get_mac(line):
         mac = re.search('([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})', line)
         try:
             return mac.group(0)
-        except Exception:
-            logging.error('Error searching', exc_info=True)
+        except:
+            return None
 
     @staticmethod
-    def get_conection_id(self, line):
+    def get_conection_id(line):
         user_id = re.search('([\w\d]){16}', line)
         try:
             return user_id.group(0)
-        except Exception:
-            logging.error('Error searching', exc_info=True)
+        except:
+            return None
 
     def get_lines_by_user(self, user_id) -> list:
         lines = self.file_descriptor.read_file()
@@ -60,8 +57,8 @@ class DataFilter:
         dates = re.search('((\d{2}/)+\d{4}) (\d{2}:\d{2})', line)
         try:
             return str(dates.group(0)), str(dates.group(1))
-        except Exception:
-            logging.error('Error searching', exc_info=True)
+        except:
+            return None, None
 
     @staticmethod
     def get_seconds(line: list) -> int:
@@ -83,13 +80,13 @@ class DataFilter:
         date = re.search('(^(\d{2}/)+\d{4}) (\d{2}:\d{2}$)', input)
         try:
             return str(date.group(0))
-        except Exception:
-            logging.error('Error searching', exc_info=True)
+        except:
+            return None
 
     @staticmethod
     def get_input_user(user):
         user = re.search('([a-z])', user)
         try:
             return str(user.group(0))
-        except Exception:
-            logging.error('Error searching', exc_info=True)
+        except:
+            return None

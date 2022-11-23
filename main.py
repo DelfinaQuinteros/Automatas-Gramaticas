@@ -27,10 +27,10 @@ def read_option():
 
 if __name__ == '__main__':
     while True:
-        sleep(3)
         try:
             print(MAIN)
             print(read_option())
+            sleep(4)
         except ValueError:
             print("La opcion debe ser un numero")
             print(read_option())
